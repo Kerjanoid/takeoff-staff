@@ -1,26 +1,25 @@
-import React, {FC} from 'react';
-import { Navigate } from "react-router-dom";
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
-import Box from '@mui/material/Box';
+import { Navigate } from 'react-router-dom';
+import { Avatar, Button, CssBaseline, TextField, Link, Box, Typography, Container } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 interface SignInProps {
   auth: boolean;
 }
 
-function Copyright(props: any) {
+interface CopyrightProps {
+  sx: {
+    mt: number,
+    mb: number
+  }
+}
+
+function Copyright(props: CopyrightProps) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+    <Typography variant='body2' color='text.secondary' align='center' {...props}>
       {'© '}
-      <Link color="inherit" href="https://github.com/Kerjanoid">
-        Vyacheslav Bardakov
+      <Link color='inherit' href='https://github.com/Kerjanoid' target='_blank' rel='noopener noreferrer'>
+        {'Vyacheslav Bardakov'}
       </Link>
       {' '}
       {new Date().getFullYear()}
@@ -30,10 +29,10 @@ function Copyright(props: any) {
 
 const theme = createTheme();
 
-const SignIn: FC<SignInProps> = ({auth}) => {
+const SignIn: React.FC<SignInProps> = ({auth}) => {
 
   if (auth) {
-    return <Navigate to="/contacts" replace />
+    return <Navigate to='/contacts' replace />
   }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -47,7 +46,7 @@ const SignIn: FC<SignInProps> = ({auth}) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component='main' maxWidth='xs'>
         <CssBaseline />
         <Box
           sx={{
@@ -60,34 +59,34 @@ const SignIn: FC<SignInProps> = ({auth}) => {
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component='h1' variant='h5'>
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component='form' onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
-              margin="normal"
+              margin='normal'
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id='email'
+              label='Email Address'
+              name='email'
+              autoComplete='email'
               autoFocus
             />
             <TextField
-              margin="normal"
+              margin='normal'
               required
               fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
+              name='password'
+              label='Password'
+              type='password'
+              id='password'
+              autoComplete='current-password'
             />
             <Button
-              type="submit"
+              type='submit'
               fullWidth
-              variant="contained"
+              variant='contained'
               sx={{ mt: 3, mb: 2 }}
             >
               Sign In
