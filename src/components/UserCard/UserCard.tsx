@@ -4,8 +4,8 @@ interface SignInProps {
   name: string;
   username: string;
   email: string;
-  phone: string;
-  website: string;
+  phone?: string;
+  website?: string;
 }
 
 const UserCard: React.FC<SignInProps> = ({ name, username, email, phone, website,}) => {

@@ -1,8 +1,10 @@
-import { AppBar, Box, Button, Toolbar, IconButton, Typography } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { AppBar, Box, Button, Toolbar } from '@mui/material';
+import { useActions } from '../../hooks/useActions';
+
 import Search from '../Search/Search';
 
 const Header: React.FC = () => {
+  const { logOut } = useActions()
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -10,6 +12,7 @@ const Header: React.FC = () => {
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <Search />
           <Button
+            onClick={() => logOut()}
             color='inherit'
             sx={{
               width: '125px',
