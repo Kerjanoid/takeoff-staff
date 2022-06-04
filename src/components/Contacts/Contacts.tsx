@@ -1,8 +1,15 @@
 import { Container, Box } from '@mui/material';
+import { Navigate } from 'react-router-dom';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import CardList from '../CardList/CardList';
 import Header from '../Header/Header';
 
 const Contacts: React.FC = () => {
+  const { isLoggedIn } = useTypedSelector(state => state.auth)
+
+  if (!isLoggedIn) {
+    return <Navigate to='/sign-in' replace />;
+  }
 
   return (
     <Container
