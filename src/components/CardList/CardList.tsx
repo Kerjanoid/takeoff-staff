@@ -5,14 +5,14 @@ import { useActions } from "../../hooks/useActions";
 import { useEffect } from "react";
 
 const CardList: React.FC = () => {
-  const { contacts, isLoading, error } = useTypedSelector(
+  const { searchedContacts, isLoading, error } = useTypedSelector(
     (state) => state.contacts
   );
   const { fetchContacts } = useActions();
 
   useEffect(() => {
     fetchContacts();
-  }, [])
+  }, []);
 
   const loader = (
     <Box
@@ -45,20 +45,41 @@ const CardList: React.FC = () => {
     </Box>
   );
 
+  const nothingMessage = (
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        mt: 15,
+      }}
+    >
+      <Typography
+        variant="h6"
+        sx={{
+          textAlign: "center",
+        }}
+      >
+        Nothing was found. Change the search query.
+      </Typography>
+    </Box>
+  );
+
   return (
     <>
       {isLoading && loader}
       {error && errorMessage}
-      {contacts.map((user) => (
-        <UserCard
-          key={user.id}
-          name={user.name}
-          username={user.username}
-          email={user.email}
-          phone={user.phone}
-          website={user.website}
-        />
-      ))}
+      {searchedContacts.length
+        ? searchedContacts.map((user) => (
+            <UserCard
+              key={user.id}
+              name={user.name}
+              username={user.username}
+              email={user.email}
+              phone={user.phone}
+              website={user.website}
+            />
+          ))
+        : nothingMessage}
     </>
   );
 };
