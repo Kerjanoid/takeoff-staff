@@ -18,5 +18,5 @@
 ### To start the project, you need:
 1. NodeJS version - 16.14.2 (or higher)
 1. Install NPM packages - npm i
-2. Run the project in dev-mode on http://localhost:3000/ - npm run serve
+2. Run the project in dev-mode on http://localhost:3000/ - npm start
 3. The build is performed by the command - npm run build
