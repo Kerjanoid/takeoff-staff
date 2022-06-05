@@ -4,10 +4,10 @@ export interface AuthState {
   error: null | string
 }
 export enum AuthActionTypes {
-  AUTH = 'AUTH',
-  AUTH_LOGIN = 'AUTH_LOGIN',
-  AUTH_LOGOUT = 'AUTH_LOGOUT',
-  AUTH_ERROR = 'AUTH_ERROR'
+  AUTH = "AUTH",
+  AUTH_LOGIN = "AUTH_LOGIN",
+  AUTH_LOGOUT = "AUTH_LOGOUT",
+  AUTH_ERROR = "AUTH_ERROR"
 }
 interface FetchAuthAction {
   type: AuthActionTypes.AUTH;

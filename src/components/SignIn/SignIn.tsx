@@ -14,7 +14,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useActions } from "../../hooks/useActions";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 interface CopyrightProps {
   sx: {
@@ -66,7 +66,7 @@ const SignIn: React.FC = () => {
     <Box
       sx={{
         display: "flex",
-        justifyContent: "center"
+        justifyContent: "center",
       }}
     >
       <CircularProgress />
@@ -100,19 +100,17 @@ const SignIn: React.FC = () => {
               id="email"
               label="Email Address"
               name="email"
-              autoComplete="email"
               autoFocus
             />
             <TextField
               margin="normal"
-              inputProps={{ minLength: 10 }}
+              inputProps={{ minLength: 6 }}
               required
               fullWidth
               name="password"
               label="Password"
               type="password"
               id="password"
-              autoComplete="current-password"
             />
             {error && <Alert severity="error">{error}</Alert>}
             <Button

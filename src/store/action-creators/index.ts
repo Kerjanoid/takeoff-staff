@@ -1,5 +1,5 @@
-import * as AuthActionCreators from './auth'
-import * as ContactsActionCreators from './contacts'
+import * as AuthActionCreators from "./auth"
+import * as ContactsActionCreators from "./contacts"
 
 const allActionCreators = {
   ...AuthActionCreators,

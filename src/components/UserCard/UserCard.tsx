@@ -8,7 +8,13 @@ interface SignInProps {
   website?: string;
 }
 
-const UserCard: React.FC<SignInProps> = ({ name, username, email, phone, website,}) => {
+const UserCard: React.FC<SignInProps> = ({
+  name,
+  username,
+  email,
+  phone,
+  website,
+}) => {
   return (
     <Card sx={{ m: "10px" }}>
       <CardContent>
