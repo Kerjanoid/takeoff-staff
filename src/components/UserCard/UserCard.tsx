@@ -1,4 +1,5 @@
-import { Card, CardContent, Typography } from "@mui/material";
+import { Box, Button, Card, CardContent, Typography } from "@mui/material";
+import { Delete, Edit } from "@mui/icons-material";
 
 interface SignInProps {
   name: string;
@@ -27,12 +28,30 @@ const UserCard: React.FC<SignInProps> = ({
         <Typography variant="body2" color="text.secondary">
           Email: {email}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Phone: {phone}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Website: {website}
-        </Typography>
+        {phone && (
+          <Typography variant="body2" color="text.secondary">
+            Phone: {phone}
+          </Typography>
+        )}
+        {website && (
+          <Typography variant="body2" color="text.secondary">
+            Website: {website}
+          </Typography>
+        )}
+        <Box sx={{ mt: 2 }}>
+          <Button size="small" variant="outlined" startIcon={<Edit />}>
+            Edit
+          </Button>
+          <Button
+            size="small"
+            color="error"
+            variant="outlined"
+            startIcon={<Delete />}
+            sx={{ ml: 2 }}
+          >
+            Delete
+          </Button>
+        </Box>
       </CardContent>
     </Card>
   );
