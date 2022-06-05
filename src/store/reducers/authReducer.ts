@@ -1,7 +1,9 @@
 import { AuthAction, AuthActionTypes, AuthState } from "../../types/auth";
 
+const initialLoggedInState = (localStorage.getItem("isLoggedIn") === "true") ? true : false
+
 const initialState: AuthState = {
-  isLoggedIn: false,
+  isLoggedIn: initialLoggedInState,
   isLoading: false,
   error: null
 }

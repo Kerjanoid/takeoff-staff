@@ -2,6 +2,7 @@ import { ContactsAction, ContactsActionTypes, ContactsState } from "../../types/
 
 const initialState: ContactsState = {
   contacts: [],
+  searchedContacts: [],
   isLoading: false,
   error: null
 }
@@ -9,11 +10,13 @@ const initialState: ContactsState = {
 export const contactsReducer = (state = initialState, action: ContactsAction): ContactsState => {
   switch (action.type) {
     case ContactsActionTypes.FETCH_CONTACTS:
-      return { contacts: [], isLoading: true, error: null }
+      return { contacts: [], searchedContacts: [], isLoading: true, error: null }
     case ContactsActionTypes.FETCH_CONTACTS_SUCCESS:
-      return { contacts: action.payload, isLoading: false, error: null }
+      return { contacts: action.payload.contacts, searchedContacts: action.payload.searchedContacts, isLoading: false, error: null }
+    case ContactsActionTypes.SEARCH_CONTACTS:
+      return { contacts: action.payload.contacts, searchedContacts: action.payload.searchedContacts, isLoading: false, error: null }
     case ContactsActionTypes.FETCH_CONTACTS_ERROR:
-      return { contacts: [], isLoading: false, error: null }
+      return { contacts: [], searchedContacts: [], isLoading: false, error: null }
     default:
       return state
   }
