@@ -1,15 +1,14 @@
 import {
   Avatar,
-  Button,
   CssBaseline,
   TextField,
   Link,
   Box,
   Typography,
   Container,
-  Alert,
-  CircularProgress,
+  Alert
 } from "@mui/material";
+import LoadingButton from "@mui/lab/LoadingButton";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
@@ -51,7 +50,7 @@ const SignIn: React.FC = () => {
   const { isLoggedIn, isLoading, error } = useTypedSelector(
     (state) => state.auth
   );
-  const { logIn } = useActions();
+  const { logIn, fetchContacts } = useActions();
 
   if (isLoggedIn) {
     return <Navigate to="/" replace />;
@@ -60,18 +59,8 @@ const SignIn: React.FC = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     logIn();
+    fetchContacts();
   };
-
-  const loader = (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      <CircularProgress />
-    </Box>
-  );
 
   return (
     <ThemeProvider theme={theme}>
@@ -100,6 +89,7 @@ const SignIn: React.FC = () => {
               id="email"
               label="Email Address"
               name="email"
+              autoComplete="email"
               autoFocus
             />
             <TextField
@@ -111,17 +101,18 @@ const SignIn: React.FC = () => {
               label="Password"
               type="password"
               id="password"
+              autoComplete="current-password"
             />
             {error && <Alert severity="error">{error}</Alert>}
-            <Button
+            <LoadingButton
               type="submit"
               fullWidth
               variant="contained"
+              loading={isLoading}
               sx={{ mt: 3, mb: 2 }}
             >
               Sign In
-            </Button>
-            {isLoading && loader}
+            </LoadingButton>
           </Box>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
