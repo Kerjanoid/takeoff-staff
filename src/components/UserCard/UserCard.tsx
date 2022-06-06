@@ -1,41 +1,37 @@
 import { Box, Button, Card, CardContent, Typography } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
+import { IContact } from "../../types/contacts";
 
 interface SignInProps {
-  name: string;
-  username: string;
-  email: string;
-  phone?: string;
-  website?: string;
+  contact: IContact,
+  removeHandler: (contact: IContact) => void
 }
 
 const UserCard: React.FC<SignInProps> = ({
-  name,
-  username,
-  email,
-  phone,
-  website,
+  contact,
+  removeHandler
 }) => {
+
   return (
     <Card sx={{ m: "10px" }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {name}
+          {contact.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Username: {username}
+          Username: {contact.username}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Email: {email}
+          Email: {contact.email}
         </Typography>
-        {phone && (
+        {contact.phone && (
           <Typography variant="body2" color="text.secondary">
-            Phone: {phone}
+            Phone: {contact.phone}
           </Typography>
         )}
-        {website && (
+        {contact.website && (
           <Typography variant="body2" color="text.secondary">
-            Website: {website}
+            Website: {contact.website}
           </Typography>
         )}
         <Box sx={{ mt: 2 }}>
@@ -48,6 +44,7 @@ const UserCard: React.FC<SignInProps> = ({
             variant="outlined"
             startIcon={<Delete />}
             sx={{ ml: 2 }}
+            onClick={() => removeHandler(contact)}
           >
             Delete
           </Button>

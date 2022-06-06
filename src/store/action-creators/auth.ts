@@ -20,7 +20,7 @@ export const logOut = () => {
     try {
       const response = await axios.post("https://jsonplaceholder.typicode.com/users", { isLoggedIn: false });
       dispatch({ type: AuthActionTypes.AUTH_LOGOUT, payload: response.data });
-      localStorage.setItem("isLoggedIn", response.data.isLoggedIn);
+      localStorage.clear();
     } catch (e) {
       dispatch({ type: AuthActionTypes.AUTH_ERROR, payload: "Something went wrong. Please try again." })
     }
