@@ -1,18 +1,16 @@
 import { InputBase } from "@mui/material";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
-import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useActions } from "../../hooks/useActions";
 import { useState } from "react";
 
 const Search: React.FC = () => {
-  const { contacts } = useTypedSelector((state) => state.contacts);
   const { search } = useActions();
   const [query, setQuery] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
-    search(contacts, e.target.value);
+    search(e.target.value);
   };
 
   const Search = styled("div")(({ theme }) => ({

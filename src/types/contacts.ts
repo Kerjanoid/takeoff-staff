@@ -31,7 +31,9 @@ export interface ContactsState {
 export enum ContactsActionTypes {
   FETCH_CONTACTS = "FETCH_CONTACTS",
   FETCH_CONTACTS_SUCCESS = "FETCH_CONTACTS_SUCCESS",
+  TAKE_LOCAL_CONTACTS="TAKE_CONTACTS",
   SEARCH_CONTACTS = "SEARCH_CONTACTS",
+  REMOVE_CONTACT = "REMOVE_CONTACT",
   FETCH_CONTACTS_ERROR = "FETCH_CONTACTS_ERROR",
 }
 interface FetchContactsAction {
@@ -45,9 +47,17 @@ interface SearchContactsAction {
   type: ContactsActionTypes.SEARCH_CONTACTS;
   payload: { contacts: IContact[], searchedContacts: IContact[] };
 }
+interface TakeLocalContactsAction {
+  type: ContactsActionTypes.TAKE_LOCAL_CONTACTS;
+  payload: { contacts: IContact[], searchedContacts: IContact[] };
+}
+interface RemoveContactAction {
+  type: ContactsActionTypes.REMOVE_CONTACT;
+  payload: { contacts: IContact[], searchedContacts: IContact[] };
+}
 interface FetchContactsErrorAction {
   type: ContactsActionTypes.FETCH_CONTACTS_ERROR;
   payload: string;
 }
 
-export type ContactsAction = FetchContactsAction | FetchContactsSuccessAction | SearchContactsAction | FetchContactsErrorAction
+export type ContactsAction = FetchContactsAction | FetchContactsSuccessAction | SearchContactsAction | TakeLocalContactsAction | RemoveContactAction | FetchContactsErrorAction

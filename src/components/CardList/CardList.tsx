@@ -3,15 +3,20 @@ import { CircularProgress, Box, Typography } from "@mui/material";
 import UserCard from "../UserCard/UserCard";
 import { useActions } from "../../hooks/useActions";
 import { useEffect } from "react";
+import { IContact } from "../../types/contacts";
 
 const CardList: React.FC = () => {
   const { searchedContacts, isLoading, error } = useTypedSelector(
     (state) => state.contacts
   );
-  const { fetchContacts } = useActions();
+  const { takeLocalContacts, remove } = useActions();
+
+  const removeHandler = (contact: IContact) => {
+    remove(contact.id, searchedContacts)
+  }
 
   useEffect(() => {
-    fetchContacts();
+    takeLocalContacts();
   }, []);
 
   const loader = (
@@ -69,14 +74,11 @@ const CardList: React.FC = () => {
       {isLoading && loader}
       {error && errorMessage}
       {searchedContacts.length
-        ? searchedContacts.map((user) => (
+        ? searchedContacts.map((contact) => (
             <UserCard
-              key={user.id}
-              name={user.name}
-              username={user.username}
-              email={user.email}
-              phone={user.phone}
-              website={user.website}
+              key={contact.id}
+              contact={contact}
+              removeHandler={removeHandler}
             />
           ))
         : nothingMessage}
