@@ -14,6 +14,7 @@
 3. Getting a list of contacts from jsonplaceholder
 4. Routing using react-router-dom
 5. Searching (filtering) contacts on contacts-page
+6. Possibility to add/edit/delete contacts
 
 ### To start the project, you need:
 1. NodeJS version - 16.14.2 (or higher)
