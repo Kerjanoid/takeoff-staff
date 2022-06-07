@@ -6,8 +6,8 @@ import SignIn from "./components/SignIn/SignIn";
 const App: React.FC = () => {
   return (
     <Routes>
-      <Route path="/sign-in" element={<SignIn />} />
-      <Route path="/" element={<Contacts />} />
+      <Route path="/takeoff-staff/sign-in" element={<SignIn />} />
+      <Route path="/takeoff-staff/" element={<Contacts />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

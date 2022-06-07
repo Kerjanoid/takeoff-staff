@@ -53,7 +53,7 @@ const SignIn: React.FC = () => {
   const { logIn, fetchContacts } = useActions();
 
   if (isLoggedIn) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/takeoff-staff/" replace />;
   }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {

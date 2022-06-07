@@ -17,7 +17,7 @@ const Contacts = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   if (!isLoggedIn) {
-    return <Navigate to="/sign-in" replace />;
+    return <Navigate to="/takeoff-staff/sign-in" replace />;
   }
 
   const addNewContactHandler = () => {

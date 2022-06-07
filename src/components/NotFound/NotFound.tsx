@@ -36,7 +36,7 @@ const NotFound: React.FC = () => {
         component={Link}
         variant="outlined"
         size="large"
-        to="/"
+        to="/takeoff-staff"
         sx={{
           mt: 5,
         }}
