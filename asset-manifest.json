@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/takeoff-staff/static/css/main.e6c13ad2.css",
+    "main.js": "/takeoff-staff/static/js/main.61987cbf.js",
+    "index.html": "/takeoff-staff/index.html",
+    "main.e6c13ad2.css.map": "/takeoff-staff/static/css/main.e6c13ad2.css.map",
+    "main.61987cbf.js.map": "/takeoff-staff/static/js/main.61987cbf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.61987cbf.js"
+  ]
+}
