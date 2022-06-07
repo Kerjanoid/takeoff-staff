@@ -18,6 +18,8 @@
 
 ### To start the project, you need:
 1. NodeJS version - 16.14.2 (or higher)
-1. Install NPM packages - npm i
-2. Run the project in dev-mode on http://localhost:3000/ - npm start
-3. The build is performed by the command - npm run build
+2. Install NPM packages - npm i
+3. Run the project in dev-mode on http://localhost:3000/ - npm start
+4. The build is performed by the command - npm run build
+
+### :link: [GitPages - link](https://kerjanoid.github.io/takeoff-staff/)
