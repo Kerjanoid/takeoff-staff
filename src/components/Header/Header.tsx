@@ -1,6 +1,5 @@
 import { AppBar, Box, Button, Toolbar } from "@mui/material";
 import { useActions } from "../../hooks/useActions";
-
 import Search from "../Search/Search";
 
 const Header: React.FC = () => {

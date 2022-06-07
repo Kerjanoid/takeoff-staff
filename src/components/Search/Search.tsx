@@ -5,12 +5,12 @@ import { useActions } from "../../hooks/useActions";
 import { useState } from "react";
 
 const Search: React.FC = () => {
-  const { search } = useActions();
+  const { searchContacts } = useActions();
   const [query, setQuery] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
-    search(e.target.value);
+    searchContacts(e.target.value);
   };
 
   const Search = styled("div")(({ theme }) => ({

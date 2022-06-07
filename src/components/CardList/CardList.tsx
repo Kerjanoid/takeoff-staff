@@ -1,19 +1,19 @@
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { CircularProgress, Box, Typography } from "@mui/material";
-import UserCard from "../UserCard/UserCard";
 import { useActions } from "../../hooks/useActions";
 import { useEffect } from "react";
 import { IContact } from "../../types/contacts";
+import ContactCard from "../ContactCard/ContactCard";
 
 const CardList: React.FC = () => {
   const { searchedContacts, isLoading, error } = useTypedSelector(
     (state) => state.contacts
   );
-  const { takeLocalContacts, remove } = useActions();
+  const { takeLocalContacts, removeContact } = useActions();
 
   const removeHandler = (contact: IContact) => {
-    remove(contact.id, searchedContacts)
-  }
+    removeContact(contact.id, searchedContacts);
+  };
 
   useEffect(() => {
     takeLocalContacts();
@@ -62,9 +62,10 @@ const CardList: React.FC = () => {
         variant="h6"
         sx={{
           textAlign: "center",
+          px: "25px",
         }}
       >
-        Nothing was found. Change the search query.
+        Nothing was found. Change the search query or add new contact.
       </Typography>
     </Box>
   );
@@ -75,7 +76,7 @@ const CardList: React.FC = () => {
       {error && errorMessage}
       {searchedContacts.length
         ? searchedContacts.map((contact) => (
-            <UserCard
+            <ContactCard
               key={contact.id}
               contact={contact}
               removeHandler={removeHandler}
