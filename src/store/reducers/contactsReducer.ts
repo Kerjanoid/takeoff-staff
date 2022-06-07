@@ -19,6 +19,10 @@ export const contactsReducer = (state = initialState, action: ContactsAction): C
       return { contacts: action.payload.contacts, searchedContacts: action.payload.searchedContacts, isLoading: false, error: null }
     case ContactsActionTypes.REMOVE_CONTACT:
       return { contacts: action.payload.contacts, searchedContacts: action.payload.searchedContacts, isLoading: false, error: null }
+    case ContactsActionTypes.CHANGE_CONTACT:
+      return { contacts: action.payload.contacts, searchedContacts: action.payload.searchedContacts, isLoading: false, error: null }
+    case ContactsActionTypes.CREATE_CONTACT:
+      return { contacts: action.payload.contacts, searchedContacts: action.payload.searchedContacts, isLoading: false, error: null }
     case ContactsActionTypes.FETCH_CONTACTS_ERROR:
       return { contacts: [], searchedContacts: [], isLoading: false, error: null }
     default:
